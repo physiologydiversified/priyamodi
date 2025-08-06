@@ -1,0 +1,239 @@
+html {
+  scroll-behavior: smooth;
+}
+
+:root {
+  --primary: #5a2a83;        /* Deep purple */
+  --accent1: #f1f0f9;        /* Light lavender gray */
+  --accent2: #f9d6e5;        /* Muted coral pink */
+  --accent3: #aac8e4;        /* Soft light blue */
+  --bg: #ffffff;             /* Neutral white background */
+  --text: #111111;           /* Neutral dark text */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Manrope', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  scroll-behavior: smooth;
+}
+header {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  background: var(--bg);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--accent);
+}
+nav a {
+  margin-left: 2rem;
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 600;
+  transition: color 0.3s;
+}
+nav a:hover {
+  color: var(--primary);
+}
+.hero {
+  padding: 5rem 2rem;
+  text-align: center;
+}
+.hero h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+}
+.hero p {
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+}
+.button {
+  padding: 0.75rem 1.5rem;
+  background: var(--primary);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 30px;
+  font-weight: 600;
+  transition: all 0.3s;
+}
+.button:hover {
+  background: #421d60;
+}
+.logo-strip {
+  overflow: hidden;
+  background: #f7f7f7;
+  padding: 1.5rem 0;
+}
+
+.logo-track {
+  display: flex;
+  width: fit-content;
+  animation: scrollInfinite 70s linear infinite;
+}
+
+.logo-track img {
+  height: 50px;
+  width: auto;
+  object-fit: contain;
+  margin: 0;
+  padding: 0;
+  box-shadow: none !important;
+  filter: none !important;
+  transition: none !important;
+}
+
+
+.logo-set {
+  display: flex;
+  gap: 3rem; /* adjust spacing between logos */
+}
+
+.logo-track img {
+  height: 90px;
+  object-fit: contain;
+}
+  
+@keyframes scrollInfinite {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+
+
+.site-footer {
+  background-color: #f3f3f3;
+  color: #333;
+  padding: 3rem 2rem;
+  font-size: 1rem;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  align-items: center;
+}
+
+.footer-left h2 {
+  font-size: 1.75rem;
+  margin-bottom: 0.5rem;
+  font-weight: 800;
+}
+
+.footer-left p {
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.footer-left a {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.footer-icons a {
+  font-size: 1.4rem;
+  margin-right: 1.2rem;
+  color: #333;
+  transition: color 0.3s;
+}
+
+.footer-icons a:hover {
+  color: var(--primary);
+}
+
+.footer-right .back-to-top {
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  border: 2px solid #333;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 600;
+  color: #333;
+  transition: all 0.3s ease;
+}
+
+.footer-right .back-to-top:hover {
+  background-color: #333;
+  color: #fff;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 0.9rem;
+  color: #777;
+  border-top: 1px solid #ddd;
+  padding-top: 1rem;
+}
+
+
+.about {
+  background: var(--accent1);
+  padding: 4rem 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.about-container {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1100px;
+  gap: 2rem;
+  align-items: center;
+}
+
+.profile-pic {
+  width: 400px;
+  height: 400px;
+}
+
+.about-text {
+  flex: 1;
+  min-width: 280px;
+}
+
+.about-text h2 {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  color: var(--primary);
+}
+
+.about-text p {
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+  color: var(--text);
+  line-height: 1.7;
+}
+
+.about-text .button {
+  background: var(--accent2);
+  color: var(--text);
+  border-radius: 30px;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.about-text .button:hover {
+  background: var(--accent3);
+}
