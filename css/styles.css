@@ -239,10 +239,12 @@ nav a:hover {
 }
 
 .gallery {
-  padding: 4rem 2rem;
-  /* background: #f1f0f9; */
+  padding: 2rem 1rem;
   text-align: center;
+  max-width: 150%;
+  margin: 0 auto;
 }
+
 .gallery h2 {
   font-size: 2.5rem;
   margin-bottom: 2rem;
@@ -251,7 +253,7 @@ nav a:hover {
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
+  gap: 1rem;
 }
 .gallery-item img {
   width: 100%;
@@ -264,3 +266,4 @@ nav a:hover {
   font-size: 1rem;
   color: #111;
 }
+
