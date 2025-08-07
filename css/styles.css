@@ -237,3 +237,30 @@ nav a:hover {
 .about-text .button:hover {
   background: var(--accent3);
 }
+
+.gallery {
+  padding: 4rem 2rem;
+  /* background: #f1f0f9; */
+  text-align: center;
+}
+.gallery h2 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: var(--primary);
+}
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+.gallery-item img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+.caption {
+  margin-top: 0.75rem;
+  font-size: 1rem;
+  color: #111;
+}
