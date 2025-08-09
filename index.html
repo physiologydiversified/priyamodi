@@ -6,6 +6,7 @@
   <title>Priya Modi | Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css">
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
@@ -54,6 +55,7 @@
     </div>
   </div>
   
+
   
 
   <section id="work" style="padding: 4rem 2rem;">
@@ -62,56 +64,82 @@
       <div class="gallery-grid">
   
         <div class="gallery-item">
-          <img src="work/Website Portfolio Assets/Elephant.png" alt="Elephant Science Infographic">
+          <a href="work/Website Portfolio Assets/Elephant.png" class="glightbox" data-gallery="portfolio">
+            <img src="work/Website Portfolio Assets/Elephant.png" alt="Elephant Science Infographic">
+          </a>
         </div>
   
         <div class="gallery-item">
-          <img src="work/Website Portfolio Assets/FirstTouch.png" alt="First Touch Infographic">
+          <a href="work/Website Portfolio Assets/FirstTouch.png" class="glightbox" data-gallery="portfolio">
+            <img src="work/Website Portfolio Assets/FirstTouch.png" alt="First Touch Infographic">
+          </a>
         </div>
   
         <div class="gallery-item">
-          <img src="work/Website Portfolio Assets/Foot.png" alt="Foot Anatomy Illustration">
+          <a href="work/Website Portfolio Assets/Foot.png" class="glightbox" data-gallery="portfolio">
+            <img src="work/Website Portfolio Assets/Foot.png" alt="Foot Anatomy Illustration">
+          </a>
         </div>
   
         <div class="gallery-item">
-          <img src="work/Website Portfolio Assets/graphicmed.png" alt="Graphic Medicine Illustration">
+          <a href="work/Website Portfolio Assets/graphicmed.png" class="glightbox" data-gallery="portfolio">
+            <img src="work/Website Portfolio Assets/graphicmed.png" alt="Graphic Medicine Illustration">
+          </a>
         </div>
   
         <div class="gallery-item">
-          <img src="work/Website Portfolio Assets/Kidney.png" alt="Kidney Function Illustration">
+          <a href="work/Website Portfolio Assets/Kidney.png" class="glightbox" data-gallery="portfolio">
+            <img src="work/Website Portfolio Assets/Kidney.png" alt="Kidney Function Illustration">
+          </a>
         </div>
   
         <div class="gallery-item gallery-item--large">
-          <img src="work/Website Portfolio Assets/MRPdiagrams.png" alt="MRP Diagram Collection">
+          <a href="work/Website Portfolio Assets/MRPdiagrams.png" class="glightbox" data-gallery="portfolio">
+            <img src="work/Website Portfolio Assets/MRPdiagrams.png" alt="MRP Diagram Collection">
+          </a>
         </div>
   
         <div class="gallery-item">
-          <img src="work/Website Portfolio Assets/MRP.png" alt="Physiology Diversified Project Thumbnail">
+          <a href="work/Website Portfolio Assets/MRP.png" class="glightbox" data-gallery="portfolio">
+            <img src="work/Website Portfolio Assets/MRP.png" alt="Physiology Diversified Project Thumbnail">
+          </a>
         </div>
   
         <div class="gallery-item">
-          <img src="work/Website Portfolio Assets/NeuroPortrait.png" alt="Neuroscience Portrait Illustration">
+          <a href="work/Website Portfolio Assets/NeuroPortrait.png" class="glightbox" data-gallery="portfolio">
+            <img src="work/Website Portfolio Assets/NeuroPortrait.png" alt="Neuroscience Portrait Illustration">
+          </a>
         </div>
   
         <div class="gallery-item">
-          <img src="work/Website Portfolio Assets/OralThrush1.png" alt="Oral Thrush Educational Diagram">
+          <a href="work/Website Portfolio Assets/OralThrush1.png" class="glightbox" data-gallery="portfolio">
+            <img src="work/Website Portfolio Assets/OralThrush1.png" alt="Oral Thrush Educational Diagram">
+          </a>
         </div>
   
         <div class="gallery-item">
-          <img src="work/Website Portfolio Assets/patientneuro.png" alt="Patient-Centered Neuroillustration">
+          <a href="work/Website Portfolio Assets/patientneuro.png" class="glightbox" data-gallery="portfolio">
+            <img src="work/Website Portfolio Assets/patientneuro.png" alt="Patient-Centered Neuroillustration">
+          </a>
         </div>
   
         <div class="gallery-item gallery-item--tall">
-          <img src="work/Website Portfolio Assets/Peanut.png" alt="Allergy and Immunology - Peanut Diagram">
+          <a href="work/Website Portfolio Assets/Peanut.png" class="glightbox" data-gallery="portfolio">
+            <img src="work/Website Portfolio Assets/Peanut.png" alt="Allergy and Immunology - Peanut Diagram">
+          </a>
         </div>
   
         <div class="gallery-item">
-          <img src="work/Website Portfolio Assets/Surgical.png" alt="Surgical Illustration Sample">
+          <a href="work/Website Portfolio Assets/Surgical.png" class="glightbox" data-gallery="portfolio">
+            <img src="work/Website Portfolio Assets/Surgical.png" alt="Surgical Illustration Sample">
+          </a>
         </div>
   
       </div>
     </section>
   </section>
+  
+  
   
 
 
@@ -124,7 +152,7 @@
     <div class="footer-content">
       <div class="footer-left">
         <h2>Let’s connect.</h2>
-        <p>Email me at <a href="mailto:priyamodi@mail.utoronto.ca">priyamodi@mail.utoronto.ca</a></p>
+        <p>Email me at <a href="mailto:priyamodi@mail.utoronto.ca">priya.modi@mail.utoronto.ca</a></p>
         <div class="footer-icons">
           <a href="https://www.linkedin.com/in/priyamodi-bmc" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
           <a href="https://www.instagram.com/priyamodivis/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
@@ -143,6 +171,18 @@
   
 
   <script src="js/script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+  <script>
+    const lightbox = GLightbox({
+      selector: '.glightbox',
+      loop: true,
+      touchNavigation: true,
+      openEffect: 'fade',
+      closeEffect: 'fade'
+    });
+  </script>
+  
+  
 
 </body>
 </html>

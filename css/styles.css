@@ -240,30 +240,202 @@ nav a:hover {
 
 .gallery {
   padding: 2rem 1rem;
-  text-align: center;
-  max-width: 150%;
+  max-width: 1200px;
   margin: 0 auto;
+  text-align: center;
 }
 
 .gallery h2 {
   font-size: 2.5rem;
-  margin-bottom: 2rem;
   color: var(--primary);
+  margin-bottom: 2rem;
 }
+
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1rem;
+  gap: 1.5rem;
 }
+
 .gallery-item img {
   width: 100%;
   height: auto;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  cursor: zoom-in;
+  transition: transform 0.3s ease;
 }
-.caption {
-  margin-top: 0.75rem;
-  font-size: 1rem;
-  color: #111;
+
+.gallery-item img:hover {
+  transform: scale(1.02);
 }
+
+
+/* --- Gallery grid (keeps your layout) --- */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+}
+.gallery-item {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* Optional: same-size tiles; comment out if you want natural heights */
+.gallery-item { aspect-ratio: 4 / 3; }
+.gallery-item--large { grid-column: span 2; grid-row: span 2; aspect-ratio: auto; }
+.gallery-item--tall { grid-row: span 2; aspect-ratio: auto; }
+
+/* --- Link becomes the hover container --- */
+.gallery-item a {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  cursor: zoom-in;
+}
+
+/* Image fits inside without cropping */
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;       /* prevent cropping */
+  display: block;
+  transition: transform 0.35s ease, opacity 0.35s ease;
+  background: #f7f7f9;       /* subtle backdrop behind transparent PNGs */
+}
+
+/* Dim layer on hover */
+.gallery-item a::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(17, 17, 17, 0.35);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  z-index: 1;
+}
+
+/* Title overlay pulled from data-title */
+.gallery-item a::after {
+  content: attr(data-title);
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  padding: 0.75rem 1rem;
+  text-align: center;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #fff;
+  background: linear-gradient(to top, rgba(17,17,17,0.6), rgba(17,17,17,0));
+  transform: translateY(12px);
+  opacity: 0;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  z-index: 2;
+}
+
+/* Hover state */
+.gallery-item a:hover::before { opacity: 1; }
+.gallery-item a:hover::after  { opacity: 1; transform: translateY(0); }
+.gallery-item a:hover img     { opacity: 0.9; transform: scale(1.02); }
+
+/* Nice rounded corners + shadow like the rest of your site */
+.gallery-item,
+.gallery-item img {
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+
+/* --- GLightbox caption overrides --- */
+
+/* Position the caption above the bottom edge */
+.glightbox-clean .gdesc-inner {
+  background: rgba(17, 17, 17, 0.6); /* semi-transparent dark background */
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  max-width: 85%;
+  margin: 0 auto 1rem auto; /* center and space from bottom */
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #fff;
+  text-align: center;
+  line-height: 1.4;
+}
+
+/* Remove excessive white box look */
+.glightbox-desc {
+  background: none !important;
+  box-shadow: none !important;
+}
+
+/* Smooth fade-in */
+.gdesc-inner {
+  animation: fadeInCaption 0.3s ease;
+}
+
+@keyframes fadeInCaption {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------- Floating caption overlay ---------- */
+.glightbox-container.pd-skin .gdesc {           /* the caption wrapper */
+  position: absolute;
+  left: 50%;
+  bottom: 20px;
+  transform: translateX(-50%);
+  width: calc(100% - 80px);                     /* breathing room at edges */
+  pointer-events: none;                          /* clicks pass through */
+  background: transparent !important;            /* remove default bar */
+  box-shadow: none !important;
+}
+
+.glightbox-container.pd-skin .gdesc-inner {     /* the pill itself */
+  display: inline-block;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 10px 14px;
+  border-radius: 12px;
+  background: rgba(17, 17, 17, 0.55);           /* semi‑transparent */
+  color: #fff;
+  font-family: 'Manrope', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  line-height: 1.35;
+  text-align: center;
+  backdrop-filter: blur(2px);                    /* subtle glassiness */
+  pointer-events: auto;                          /* allow text selection if needed */
+  animation: pd-caption-in 220ms ease-out;
+}
+
+/* Tighter layout for portrait images so the pill doesn’t overlap too much */
+.glightbox-container.pd-skin .gslide-image img {
+  border-radius: 14px;                           /* match your rounded look */
+}
+
+/* Caption fade/slide */
+@keyframes pd-caption-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------- Mobile fallback: convert to compact bar ---------- */
+@media (max-width: 640px) {
+  .glightbox-container.pd-skin .gdesc {
+    position: static;
+    transform: none;
+    width: 100%;
+    padding: 8px 16px;
+  }
+  .glightbox-container.pd-skin .gdesc-inner {
+    width: 100%;
+    max-width: none;
+    border-radius: 10px;
+    margin-top: 8px;
+  }
+}
+
 
