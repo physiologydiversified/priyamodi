@@ -295,7 +295,7 @@ nav a:hover {
 .profile-pic {
   width: 420px;              /* adjust as desired */
   height: 480px;             /* adjust as desired */
-  background: url("../assets/profilepic.png") center left / cover no-repeat;
+  background: url("../assets/profilepic2.png") center left / cover no-repeat;
   border-radius: 80px;
   flex-shrink: 5;            /* prevents it from squeezing */
   align-self: flex-start;  
